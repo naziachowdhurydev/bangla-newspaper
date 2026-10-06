@@ -4,15 +4,31 @@ import React from "react";
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
   return (
-    <div>
-      <div className="flex items-center gap-2 p-4">
+    <header className="relative mx-auto px-4 py-4 container">
+      {/* <div className="flex justify-between items-center p-4"> */}
+      <div className="flex flex-col items-center justify-center gap-2 sm:flex-row p-4">
         <Image src="/logo.webp" alt="Logo" width={50} height={50} />
-        <div>
-          Bangla News 24
-          <p>{date}</p>
+        <div className="flex flex-col items-center sm:items-start">
+          <span className="text-2xl font-bold text-red-700">
+            Bangla News 24
+          </span>
+          <span className="text-xs text-gray-600">{date}</span>
         </div>
       </div>
-    </div>
+
+      <div className="absolute right-4 top-4 flex items-center gap-2 text-sm sm:right-6 sm:top-6 md:right-8 lg:right-10">
+        {" "}
+        <button className="btn btn-ghost px-2 text-neutral-700 transition-colors hover:text-red-700 sm:px-3">
+          {" "}
+          সাইন ইন{" "}
+        </button>{" "}
+        <button className="btn bg-rose-700 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-rose-800 sm:px-4">
+          {" "}
+          সাইন আপ{" "}
+        </button>{" "}
+      </div>
+      {/* </div> */}
+    </header>
   );
 };
 
