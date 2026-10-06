@@ -1,11 +1,24 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch("https://news-api-v2.vercel.app/api/news/sections");
+  const data = await res.json();
+  const sections = data.data;
+  const mainNews = sections[0].articles;
+
   return (
     <div>
       <Marquee />
-      দিল্লিতে নারী বিক্ষোভকারীদের 'হেনস্থা', 'দ্বিতীয় যন্তর মন্তরের' ডাক ককরোচ
-      জনতা পার্টির
+      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-2">
+        {/* news section */}
+        <div className=" col-span-2 ">
+          <MainNews news={mainNews} />
+        </div>
+
+        {/* most read section */}
+        <div className="bg-green-200 col-span-1"></div>
+      </div>
     </div>
   );
 }

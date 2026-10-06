@@ -13,7 +13,7 @@ const Marquee = async () => {
   console.log(headlines);
   return (
     <div className="bg-red-700 text-white ">
-      <div className="flex items-center overflow-hidden container mx-auto">
+      <div className="flex items-center overflow-hidden max-w-7xl mx-auto">
         <div className="font-bold bg-red-800 py-1.5 px-5">সর্বশেষ</div>
         <MarqueeText direction="right" duration={12}>
           {headlines.map((h: Headline) => (
