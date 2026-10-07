@@ -1,5 +1,6 @@
 import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
+import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
 interface IOtherSection {
@@ -22,17 +23,17 @@ export default async function Home() {
   const mainNews = sections[0].articles;
 
   const otherSections: IOtherSection[] = sections.slice(1);
-  console.log(otherSections);
+  // console.log(otherSections);
 
   return (
     <div>
       <Marquee />
-      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-2">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-2 mt-5">
         {/* news section */}
         <div className=" col-span-2 ">
           <MainNews news={mainNews} />
 
-          <div className="grid  gap-2 mt-5">
+          <div className="grid gap-2 mt-5">
             {otherSections.map((os) => (
               <div key={os.currentId} className="my-2 pb-2 ">
                 <h1 className="text-md font-bold border-b-2 pb-1 border-red-700">
@@ -50,7 +51,9 @@ export default async function Home() {
         </div>
 
         {/* most read section */}
-        <div className="bg-green-200 col-span-1"></div>
+        <div className="col-span-1">
+          <MostRead />
+        </div>
       </div>
     </div>
   );
