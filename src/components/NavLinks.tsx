@@ -21,7 +21,11 @@ const NavLinks = async () => {
       </Link>
 
       {filteredNavs.map((n, i) => (
-        <Link className="hover:text-red-600" href={n.slug} key={i}>
+        <Link
+          className="hover:text-red-600"
+          href={`/category/${n.slug}`}
+          key={i}
+        >
           {n.title}
         </Link>
       ))}
